@@ -3,33 +3,32 @@ import random
 '''
     A game where the user will have to guess a randomly selected number from 1-100
     With each guess feedback will be given: "higher", "lower" or "correct"
-    When the user guesses correctly the game ends
+    When the user guesses correctly the game ends 
 '''
 
-#Checks whether the user input is higher, lower or on the target number
+#Checks whether the user input is higher, lower or on the target number using if statements
+#Returns values accordingly
 def check_answer(num, target):
+    #if num is more than target
     if num > target:
         return "lower"
+    #less than
     elif num < target:
         return "higher"
+    #equal to target
     else:
         return "correct"
 
-#Checks whether the user input is valid
+#Checks whether the user input is valid by checking the user input to a list of valid inputs
 def is_valid(user_input):
-    #Creates a list: [1,2,3...100]
-    valid_inputs = [i for i in range(1,101)]
+    #Creates a list: ["1","2","3"..."100"]
+    valid_inputs = [str(i) for i in range(1,101)]
 
-   
-    try:
-        #Returns true if the user input is between 1 and 100
-        if int(user_input) in valid_inputs:
-            return True
-        #Otherwise Return False
-        else:
-            return False
-    #If an error occurs (the user input cannot be converted to an integer) return False
-    except ValueError:
+    #Returns true if the user input is between 1 and 100
+    if user_input in valid_inputs:
+        return True
+    #Otherwise return False
+    else:
         return False
 
 def run_game():
